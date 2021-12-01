@@ -24,4 +24,9 @@ statics.createOne = async function (data) {
   return await this.create(data);
 };
 
+methods.updateProject = async function (update) {
+  if (update.version) this.version = update.version;
+  this.update = this.update.concat(update.path);
+  return await this.save();
+};
 module.exports = new mongoose.model('update', updateSchema);

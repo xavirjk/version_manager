@@ -39,7 +39,7 @@ statics.findForCredentials = async function ({ email, password }) {
   const user = await this.findByEmail(email);
   if (!user) return null;
 
-  const matched = user.checkMatch(password);
+  const matched = await user.checkMatch(password);
   if (!matched) return null;
   return user;
 };
