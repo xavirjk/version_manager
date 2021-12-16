@@ -2,8 +2,8 @@
   "name": "version-manager",
   "version": "1.0.0",
   "engines": {
-    "npm": "6.4.1",
-    "node": "10.15.1"
+    "npm": "8.2.0",
+    "node": "16.13.1"
   },
   "description": "Managing Apps version to facilitate Updates",
   "main": "index.js",
