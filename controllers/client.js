@@ -17,6 +17,7 @@ exports.postUpdateProject = async (req, res, next) => {
   try {
     const { body, files } = req;
     const { version, project } = body;
+    console.log(body);
     const exists = await Update.findById(project);
     if (!exists) {
       res.status(404).send({ message: 'project not found' });
