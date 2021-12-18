@@ -20,7 +20,6 @@ exports.postUpdateProject = async (req, res, next) => {
   try {
     const { body, files } = req;
     const { version, project } = body;
-    console.log('Received body', body);
     const exists = await Update.findById(project);
     if (!exists) {
       res.status(404).send({ message: 'project not found' });
@@ -48,20 +47,10 @@ exports.getAll = async (req, res, next) => {
 };
 
 async function saveFileAndReturnArray(file) {
-  var uploadPath = 'zip/' + Math.random() + '-' + file.name;
-  console.log('f', file);
   const newPath = await cloudinary.uploads(file.tempFilePath, 'zip');
-  console.log('new Path', newPath);
-  console.log('new Path mn', newPath.secure_url);
   await fs.rmSync(path.join(__dirname, '../tmp'), {
     recursive: true,
     force: true,
   });
-  /*await file.mv(uploadPath, function (err) {
-    if (err) {
-      next(err);
-      return false;
-    }
-  });*/
   return newPath.secure_url;
 }
