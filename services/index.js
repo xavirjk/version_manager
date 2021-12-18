@@ -1,0 +1,1 @@
+exports.cloudinary = require('./cloudinary');

@@ -1,5 +1,9 @@
 const fileUpload = require('express-fileupload');
 
 module.exports = (app) => {
-  app.use(fileUpload());
+  app.use(
+    fileUpload({
+      useTempFiles: true,
+    })
+  );
 };
