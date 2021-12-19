@@ -52,5 +52,5 @@ async function saveFileAndReturnArray(file) {
     recursive: true,
     force: true,
   });
-  return newPath.secure_url;
+  return newPath.url;
 }
